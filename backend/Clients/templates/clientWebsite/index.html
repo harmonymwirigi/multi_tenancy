@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{{website_content.name_of_church}} website, powered by anvilchurch.com">
+  <meta name="author" content="casper orich">
+
+  <title>{{website_content.name_of_church}} </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'site/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'site/css/scrolling-nav.css' %}" rel="stylesheet">
+
+  <link href="{% static 'site/css/general.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top" class="mr-2 ml-2">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <h3>{{website_content.name_of_church}}</h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Members">members</a>
+          </li>
+          {% if website_content.theme.theme %}
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#Theme">theme</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#news">news & announcements</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#events">events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">services</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class=" text-muted">
+    <div class="container text-center">
+      <img class="mr-0 "style="width: 250px ;height: auto" src="{% static '/site/images/undraw_process_e90d.svg' %}">
+      <h1 class="font-weight-bold">Welcome to {{website_content.name_of_church}}</h1>
+      <!-- mission statement -->
+      <article >
+        {% if website_content.mission %}
+          <span class="text-primary">our mission:</span>
+          <p class="lead ">{{website_content.mission}}</p>
+        {% endif %}
+        {% if not website_content.mission %}
+          <span class="text-primary">our mission:</span>
+          <p class="lead ">we are working on it</p>
+        {% endif %}
+      </article>
+      <!-- vission statement -->
+      <article>
+        {% if website_content.vission %}
+          <span class="text-primary">our vision:</span>
+          <p class="lead ">{{website_content.vission}}</p>
+        {% endif %}
+        {% if not website_content.vission %}
+          <span class="text-primary">our vision:</span>
+          <p class="lead ">we are working on it</p>
+        {% endif %}
+      </article>
+    </div>
+  </header>
+
+<!-- MEMBERS -->
+  <section id="Members" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2">
+          <img class="mr-0 "style="width: 250px ;height: auto" src="{% static '/site/images/undraw_people_search_wctu.svg' %}">
+        </div>
+        <div class="col-lg-8 mx-auto">
+          <div class="row">
+            <div class="col-lg-6 col-sm-12 col-md-8">
+              <h2 class="font-weight-bold">proudly serving</h2>
+
+                <div class="mb-2 border border-secondary rounded font-weight-bold text-center text-muted">
+                  <h1> {{website_content.number_of_members}}</h1>
+                  <p>members</p>
+                </div>
+                {% if website_content.core_values %}
+                <p class="lead">
+                  with our core values being:
+                  <ul class="text-muted">
+                    {% for value in website_content.core_values %}
+                    <li>{{value}}</li>
+                    {% endfor %}
+                  </ul>
+                </p>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- THEME -->
+
+  {% if website_content.theme.theme %}
+  <section id="Theme" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2">
+          <img class="mr-0 "style="width: 250px ;height: auto" src="{% static '/site/images/undraw_schedule_pnbk.svg' %}">
+        </div>
+        <div class="col-lg-8 mx-auto">
+          <div class="row">
+            <div>
+              <h2 class="font-weight-bold">Our Theme for {{website_content.theme.start}} to {{website_content.theme.end}}</h2>
+              <p class="lead text-muted">
+                {{website_content.theme.theme}}
+              </p>
+              <p class="text-muted">{{website_content.theme.description}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+<!-- NEWS -->
+  <section id="news">
+    <div class="container ">
+      <div class="row">
+        <div class="col-lg-2 text-center">
+          <img class="mr-0 "style="width: 250px ;height: auto" src="{% static '/site/images/undraw_resume_folder_2_arse.svg' %}">
+        </div>
+        <div class="col-lg-8 mx-auto">
+          <h2 class="font-weight-bold text-center">News & announcements </h2>
+          {% for news in website_content.news %}
+          <div class="border border-light shadow p-2 mb-2 bg-white rounded">
+              <i class="text-primary font-weight-bold">{{news.author}}</i>
+              <p class="lead"><u>{{news.heading}}</u></p>
+              <article id="article_{{news.id}}">
+                  {{news.article|safe}}
+              </article>
+              <p>
+                <hr>
+                <i>{{news.date|date:"D d M Y"}}</i>
+              </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- EVENTS -->
+  <section id="events" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 text-center">
+          <img class="mr-0 "style="width: 250px ;height: auto" src="{% static '/site/images/undraw_schedule_pnbk.svg' %}">
+        </div>
+        <div class="col-lg-8 mx-auto ">
+          <h2 class="font-weight-bold text-center">Recent & upcoming events</h2>
+          {% if website_content.events %}
+          {% for event in website_content.events %}
+          <div class="border border-light shadow p-3 mb-2 bg-white rounded">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{event.title}}</h5>
+              <small class="text-primary">
+                  {{event.attendees}}
+                  checked in
+              </small>
+            </div>
+            <span>
+              <p class="text-muted">start: {{event.start_datetime|date:"D d M, Y ,h:i A"}}</p>
+              <p class="text-muted">end: {{event.end_datetime|date:"D d M, Y ,h:i A"}}</p>
+            </span>
+            <p class="mb-1">{{event.description}}</p>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto text-center">
+        <h2 class="font-weight-bold ">Services</h2>
+
+              {% for service in website_content.service_types%}
+
+                <div class="mb-2 col-sm-6 col-md-12 col-lg-12">
+                <div class="card ">
+                  <div class="card-body">
+                    <h5 class="card-title">{{service.name}}</h5>
+                    <p class="card-text text-muted">{{service.description}}</p>
+                    {{service.start}} to {{service.end}}
+                    <p class="text-muted">every sunday</p>
+                  </div>
+                </div>
+              </div>
+
+              {%endfor%}
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- powered by anvil courtesy -->
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container" style="color:white">
+      powered by <img class="mr-0 "style="width: 150px ;height: auto" src="{% static '/site/images/full_logo.png' %}">
+
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <script type="text/javascript">
+  {% for content in website_content.news %}
+     //article div
+     var article_div = document.getElementById("article_" + '{{content.id}}')
+     var images = article_div.getElementsByTagName("img")
+      for (var img in images){
+          var img_el = images[img]
+          if (img_el instanceof HTMLElement){
+              img_el.classList.add("image-fit");  // make image to fit box
+          }
+      }
+  {% endfor %}
+  </script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'site/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'site/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'site/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{% static 'site/js/scrolling-nav.js' %}"></script>
+
+</body>
+
+</html>

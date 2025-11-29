@@ -1,0 +1,10 @@
+*.pyc
+__ pycache __
+.env
+db.sqlite3
+.idea/
+*.swp
+*.csv
+*.my-domain.com
+**/migrations/
+**/**/migrations/

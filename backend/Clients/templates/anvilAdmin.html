@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>anvil church</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'site/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'site/css/scrolling-nav.css' %}" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <h2>
+        <img class="mr-0 "style="width: 150px ;height: auto" src="{% static '/site/images/full_logo.png' %}">
+      </h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class=" text-muted">
+    <div class="container">
+        <h3 class="font-weight-bold">Live accounts</h3>
+        {% for client in clients%}
+      <div class="card mb-3">
+        <h5 class="card-header">
+          {{client}}
+          <span class="badge badge-success">{{client.number_of_members}} members</span>
+           <span class="badge badge-info">{{client.created_on}}</span>
+           <span class="badge badge-secondary">{{client.tier.tier}}</span>
+          <span class="badge badge-danger">LIVE</span>
+        </h5>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <div class="border border-secondary rounded mb-3">
+              <h5 class="ml-2 mr-2">
+                africastalking
+              </h5>
+              <p class="ml-2">at username: <i class="font-weight-bold">{{client.sms_credentials.at_username}}</i></p>
+              <p class="ml-2">at api key: <i class="font-weight-bold">{{client.sms_credentials.at_api_key}}</i></p>
+          </div>
+          <!-- <h6 class="card-subtitle mb-2"><span class="text-info"> {{client.client.domain_url}}</span></h6> -->
+          <h6 class="card-subtitle mb-2">{{client.first_name}} {{client.last_name}} <span class="text-info">{{client.phone_number}}</span></h6>
+          <h6 class="card-subtitle mb-2">church code<span class="text-info"> {{client.church_code}}</span></h6>
+
+          <p class="card-text">{{client.city_or_town}},{{client.road_or_street}} {{client.location_description}}</p>
+          <p class="card-text">{{client.website}}</p>
+
+          <div class="col text-right">
+            <a  href="{% url 'add_credit' client.client.id %}"
+               disabled class="btn btn-outline-success card-link ">{{client.credit}}
+             <span class="text-black">
+                 (apprx {{client.apprx_number_of_days_left}} days left)
+             </span>
+            </a>
+            <a class="btn btn-success" href="{% url 'edit_SMS_credentials' client.client.id %}">
+              SMS credentials
+            </a>
+          </div>
+        </div>
+      </div>
+        {% endfor %}
+
+        <h3 class="font-weight-bold">Demo accounts</h3>
+        {% for demo in demos%}
+        <div class="card mb-3 border border-secondary">
+          <h5 class="card-header">
+            {{demo}}
+             <span class="badge badge-success">{{demo.created_on}}</span>
+             <span class="badge badge-secondary">demo</span>
+          </h5>
+          <div class="card-body">
+            <!-- {% for domain in client.client_domains.all %}
+  {% if domain.is_primary %}
+    <h6 class="card-subtitle mb-2"><span class="text-info"> {{ domain.domain_name }}</span></h6>
+  {% endif %}
+{% endfor %} -->
+            <!-- <h6 class="card-subtitle mb-2"><span class="text-info"> {{demo.client.domain_url}}</span></h6> -->
+            <h6 class="card-subtitle mb-2">church code<span class="text-info">---{{demo.church_code}}</span></h6>
+            <h6 class="card-subtitle mb-2">members<span class="text-info">--{{demo.number_of_members}}</span></h6>
+
+            <a  href="{% url 'add_credit' demo.client.id %}"
+                disabled class="btn btn-outline-success card-link "> {{demo.credit}}
+              <span class="text-black">
+                (apprx {{demo.apprx_number_of_days_left}} days left)
+              </span>
+            </a>
+            <a  href="{% url 'delete_account' demo.client.id%}"
+                class="btn btn-danger card-link "> delete
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+    <div class="card-columns">
+    </div>
+  </header>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; anvilchurch 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'site/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'site/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{% static 'site/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{% static 'site/js/scrolling-nav.js' %}"></script>
+
+</body>
+
+</ht---ml>
+--

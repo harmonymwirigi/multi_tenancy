@@ -1,0 +1,48 @@
+from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
+
+from .views import listviews, addviews, statviews, fileviews, deleteviews
+
+# TODO add delete views
+urlpatterns = [
+	# listing
+	path('pending-confirmations/', listviews.PendingConfirmations.as_view()),
+	path('project-list/', listviews.ProjectList.as_view()),
+	path('project-with-id/<int:id>/', listviews.ProjectWithID.as_view()),
+
+	path('contribution-for-project/<int:id>/', listviews.ContributionsForAProject.as_view()),
+	path('contributions-by-member/<int:id>/', listviews.ContributionsByAMember.as_view()),
+
+	path('pledges-for-project/<int:id>/', listviews.PledgesForAProject.as_view()),
+	path('pledges-by-member/<int:id>/', listviews.PledgesByAmember.as_view()),
+
+	path('pledge-payment-for-project/<int:id>/', listviews.PledgePaymentForAProject.as_view()),
+	path('pledge-payment-for-project/<int:project_id>/by-member/<int:id>/',listviews.PledgePaymentForAMember.as_view()),
+
+	path('add-pending-confirmation/', addviews.AddPendingConfirmation.as_view()),
+	path('add-contribution-to-project/', addviews.AddContribution.as_view()),
+	path('add-non-member-contribution-to-project/', addviews.AddAnonymousContribution.as_view()),
+	path('add-pledge-to-project/', addviews.AddPledge.as_view()),
+	path('add-pledge/', addviews.AddPledgeAuthenticated.as_view()),
+	path('add-anonymous-pledge-to-project/', addviews.AddAnonymousPledge.as_view()),
+	path('service-pledge/', addviews.AddPledgePayment.as_view()),
+
+	path('send-pledge-payment-received-message/', addviews.SendPledgePaymentReceivedmessage.as_view()),
+
+	path('confirm-payment/<int:pending_confirmation_id>/', listviews.ConfirmPayment.as_view()),
+
+	#stats for projects
+	path('project-general-stats/', statviews.ProjectFinancingStats.as_view()),
+	path('project-size-stats/',statviews.ProjectSizeStats.as_view()),
+
+	#files.
+	path('get-project-general-stats-as-csv/<slug:date>/',fileviews.get_project_general_stats_as_csv),
+	path('get-project-contributions-as-csv/<int:project_id>/',fileviews.get_project_contribution_stats_as_csv),
+	path('get-pledge-payments-as-csv/<int:project_id>/', fileviews.get_pledge_payments_as_csv),
+
+	#delete
+	path('delete-pledge-payments/',deleteviews.deletePayments.as_view()),
+	path('delete-pledges/',deleteviews.deletePledges.as_view())
+]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

@@ -1,0 +1,4 @@
+<style lang="scss">
+  @import './assets/styles/church-is.scss';
+  @import '../node_modules/bootstrap/scss/bootstrap.scss';
+</style>

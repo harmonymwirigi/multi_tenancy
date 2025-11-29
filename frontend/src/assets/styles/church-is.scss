@@ -1,0 +1,416 @@
+@import 'bootstrap/scss/bootstrap';
+$blue: #0275d8;
+$grey:  #d2d2d2;
+$green:#139015;
+$dark: #a19c9c;
+$info: #5bc0de;
+$success: #5cb85c;
+
+$primary: $blue;
+$secondary: $grey;
+$success: $green;
+$dark: $dark;
+$main-bg-color: #ffffff;  // White background color for the main body
+
+html {
+  scroll-behavior: smooth;
+}
+.visibility-none{
+  visibility: hidden !important;
+}
+.bg-frost{
+  background-color: rgba(56, 59, 68, 0.15);
+  backdrop-filter: blur(5px);
+}
+tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+.table-borderless > thead{
+  border-bottom: 1px solid lightgray;
+}
+
+.searchedItemsDiv{
+  border-radius: 10px;
+}
+.center-div
+{
+     position: absolute;
+     margin: auto;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     width: 100px;
+     height: 100px;
+}
+.church-is-home {
+    padding: 25px 25px 25px 25px;
+}
+img.church-is-menu {
+    width: 10%;
+    height: auto;
+  }
+.card-header {
+    font-size: 20px;
+  }
+.home-menu-item{
+	border-style: solid;
+    border-width: 2px;
+	border-radius: 5px;
+	border-color : ghostwhite;
+    background-color: ghostwhite;
+    padding: 25px 25px 25px 25px;
+    text-align: center;
+	text-decoration: none;
+}
+.home-menu-item:hover{
+    background-color: ghostwhite;
+    transition: all 0.3s ease-in-out;
+	border-color : $primary;
+}
+.quick-link{
+  border-radius: 10px;
+  padding: 25px 25px 25px 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.quick-link:hover{
+  background-color: ghostwhite;
+}
+.stat-item{
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: $secondary;
+  padding: 5px 5px 5px 5px;
+  text-align: center;
+}
+.moreButton{
+    color: rgb(97, 90, 90);
+    border-radius: 10px;
+    background-color: ghostwhite;
+    padding: 5px 5px 5px 5px;
+    text-align: center;
+}
+.backButton{
+  color: rgb(97, 90, 90);
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+}
+.backButton:hover{
+  background-color: ghostwhite ;
+  transition: all 0.3s ease-in-out;
+}
+.searchedItem{
+  color: rgb(97, 90, 90);
+  border-radius: 10px;
+  padding: 5px 5px 5px 5px;
+}
+.searchedItem:hover{
+  background-color: $secondary ;
+}
+.navButton{
+  background-color: white;
+  color: $primary;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+}
+.navButton:hover{
+  color: black;
+  background-color:gainsboro ;
+  transition: all 0.3s ease-in-out;
+}
+.continer{
+    padding: 5px 5px 5px 5px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.scrollbar-none {
+  -ms-overflow-style: none;
+}
+
+.add-button{
+    color: #fff;
+    font-weight: 300;
+    border-radius: 3px;
+    background-color: $success;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
+.add-button:hover{
+  background: linear-gradient(green, $success);
+  font-weight: 400;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-pills > li > a.active {
+  font-weight: bold;
+  color: black!important;
+  background-color: ghostwhite!important;
+}
+
+.nav-pills > a{
+  font-weight: bold !important;
+  color: $primary!important;
+}
+
+.nav-pills > a.active {
+  font-weight: bold;
+  color: black!important;
+  background-color: ghostwhite!important;
+}
+.nav-link {
+  font-weight: bold !important;
+}
+.breadcrumb-item{
+  font-weight: bold;
+}
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidenav */
+  transition-delay: 0.1s;
+}
+#main-app {
+  transition: margin-left .3s ease-in-out;
+  transition-delay: 0.1s;
+  padding: 20px;
+}
+/* The side navigation menu */
+.bottom-action-tab {
+  height: 0; /* 100% Full-height */
+  width: 100%; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Stay on top */
+  bottom: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-bottom: 5px; /* Place content 60px from the top */
+  transition: 0.5s ease-in-out; /* 0.5 second transition effect to slide in the sidenav */
+  transition-delay: 0.1s;
+}
+/* Smartphones ----------- */
+@media only screen and (max-width: 760px) {
+  #main-app {
+    width: 100vw;
+  }
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+// the overlay that comes whaen nav is on
+.nav-frost-overlay{
+  position:fixed ;
+  height: 100%;
+  width: 100%;
+  z-index: 9997;
+}
+.alert-bottom{
+  position:fixed ;
+  height: 20%;
+  width: 1%;
+  z-index: 9996;
+  top:0;
+  right: 0;
+  transition: width 0.3s ease-in-out;
+}
+.alert-bottom:hover{
+  width: 50%
+}
+.image-fit{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+// custom chec
+
+/* Create a custom checkbox */
+.anvil-checkbox {
+  display: block;
+  position: relative;
+
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Hide the browser's default checkbox */
+.anvil-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.anvil-checkmark {
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.anvil-checkbox:hover input ~ .anvil-checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.anvil-checkbox input:checked ~ .anvil-checkmark {
+  background-color: rgb(179, 177, 177);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.anvil-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.anvil-checkbox input:checked ~ .anvil-checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.anvil-checkbox .anvil-checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+// custom radio
+/* Customize the label (the continer) */
+.anvil-radiobutton {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.anvil-radiobutton input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom radio button */
+.radio-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.anvil-radiobutton:hover input ~ .radio-button {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.anvil-radiobutton input:checked ~ .radio-button {
+  background-color: rgb(179, 177, 177);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-button:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.anvil-radiobutton input:checked ~ .radio-button:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.anvil-radiobutton .radio-button:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.form-control:focus {
+  border-color: #5cb85c!important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(10, 177, 24, 0.5)!important;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+// arrows
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
