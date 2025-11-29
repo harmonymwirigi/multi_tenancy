@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+*.egg-info/
+dist/
+build/
+
+# Django
+*.log
+db.sqlite3
+db.sqlite3-journal
+*.csv
+.env
+.venv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Frontend build
+frontend/dist/
+frontend/build/
+
+# Static files
+backend/staticfiles/
+backend/media/
+
+# Database
+*.db
+*.sqlite
+
+# Environment variables
+.env.local
+.env.*.local
+
+# Tenant-specific files
+*.my-domain.com
+
+# Migrations (optional - uncomment if you don't want to track migrations)
+# **/migrations/*.py
+# !**/migrations/__init__.py
+
+# OS
+Thumbs.db
+.DS_Store
+
